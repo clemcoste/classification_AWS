@@ -4,8 +4,8 @@
 #create training set / validation set
 #train the model
 
-import src.data.load_data as loader
-import src.models.cnn as classifier
+import data.load_data as loader
+import models.cnn as classifier
 import os
 import tensorflow as tf
 from tensorflow import keras
