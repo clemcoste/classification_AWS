@@ -1,6 +1,8 @@
 Keras_AWS
 ==============================
 
+[![download-data](https://github.com/clemcoste/classification_AWS/actions/workflows/download-data.yml/badge.svg?branch=main&event=workflow_dispatch)](https://github.com/clemcoste/classification_AWS/actions/workflows/download-data.yml)
+
 training AWS
 
 Project Organization
