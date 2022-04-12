@@ -8,9 +8,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@main
-      - uses: shallwefootball/s3-upload-action@main
-        with:
+      - name: copy file to s3
+        shell: bash
+        env:
           aws_key_id: ${{ secrets.AWS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_KEY}}
           aws_bucket: ${{ secrets.AWS_BUCKET }}
-          source_dir: 'AWS_Model/classification/models/model_data_test.txt'
+      - run: |
+          sudo apt-get update && sudo apt-get -y install awscli
+          aws configure set aws_access_key_id $aws_key_id
+          aws configure set aws_secret_access_key $aws_secret_access_key
+          aws configure set default.region us-east-1
+          aws s3 cp AWS_Model\classification\models\model_data_test.txt s3://$aws_s3_bucket/
