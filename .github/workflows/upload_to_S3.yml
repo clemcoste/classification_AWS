@@ -7,10 +7,10 @@ jobs:
   upload:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       - uses: shallwefootball/s3-upload-action@master
         with:
           aws_key_id: ${{ secrets.AWS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_KEY}}
           aws_bucket: ${{ secrets.AWS_BUCKET }}
-          source_dir: 'classification_AWS/AWS_Model/classification/models/model_data_test.txt'
+          source_dir: 'AWS_Model/classification/models/model_data_test.txt'
